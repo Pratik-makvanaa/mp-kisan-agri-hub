@@ -113,63 +113,63 @@ const ServiceDetail = () => {
         </Link>
 
         <div className="max-w-4xl mx-auto">
-          <div className="mb-8 animate-fade-in">
-            <h1 className="text-4xl font-bold mb-4">{service.title}</h1>
-            <p className="text-lg text-muted-foreground">{service.description}</p>
+          <div className="mb-8">
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">{service.title}</h1>
+            <p className="text-base md:text-lg text-muted-foreground">{service.description}</p>
           </div>
 
           <div className="grid gap-6">
             {/* Features */}
-            <Card className="p-6 animate-slide-up">
+            <Card className="p-6">
               <div className="flex items-center gap-2 mb-4">
                 <CheckCircle className="h-5 w-5 text-primary" />
-                <h2 className="text-2xl font-semibold">Key Features</h2>
+                <h2 className="text-xl md:text-2xl font-semibold">मुख्य विशेषताएं</h2>
               </div>
               <ul className="space-y-3">
                 {service.features.map((feature, index) => (
-                  <li key={index} className="flex items-start gap-2">
+                  <li key={index} className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                    <span>{feature}</span>
+                    <span className="text-sm md:text-base">{feature}</span>
                   </li>
                 ))}
               </ul>
             </Card>
 
             {/* Requirements */}
-            <Card className="p-6 animate-slide-up" style={{ animationDelay: "100ms" }}>
+            <Card className="p-6">
               <div className="flex items-center gap-2 mb-4">
                 <Info className="h-5 w-5 text-secondary" />
-                <h2 className="text-2xl font-semibold">Requirements</h2>
+                <h2 className="text-xl md:text-2xl font-semibold">आवश्यकताएं</h2>
               </div>
               <ul className="space-y-3">
                 {service.requirements.map((req, index) => (
-                  <li key={index} className="flex items-start gap-2">
+                  <li key={index} className="flex items-start gap-3">
                     <div className="h-2 w-2 bg-secondary rounded-full mt-2 flex-shrink-0" />
-                    <span>{req}</span>
+                    <span className="text-sm md:text-base">{req}</span>
                   </li>
                 ))}
               </ul>
             </Card>
 
             {/* How to Use */}
-            <Card className="p-6 animate-slide-up" style={{ animationDelay: "200ms" }}>
-              <h2 className="text-2xl font-semibold mb-4">How to Use</h2>
-              <ol className="space-y-3">
+            <Card className="p-6">
+              <h2 className="text-xl md:text-2xl font-semibold mb-4">उपयोग कैसे करें</h2>
+              <ol className="space-y-4">
                 {service.howToUse.map((step, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-primary text-primary-foreground flex items-center justify-center font-semibold">
+                  <li key={index} className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded bg-primary text-primary-foreground flex items-center justify-center font-semibold text-sm">
                       {index + 1}
                     </div>
-                    <span className="pt-1">{step}</span>
+                    <span className="pt-1 text-sm md:text-base">{step}</span>
                   </li>
                 ))}
               </ol>
             </Card>
 
             {/* Action Button */}
-            <div className="text-center mt-8">
-              <Button variant="hero" size="lg" className="px-12">
-                Start Using This Service
+            <div className="text-center mt-6">
+              <Button size="lg" className="px-12">
+                सेवा शुरू करें
               </Button>
             </div>
           </div>

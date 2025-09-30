@@ -12,16 +12,16 @@ interface ServiceCardProps {
 export const ServiceCard = ({ title, description, icon: Icon, to }: ServiceCardProps) => {
   return (
     <Link to={to}>
-      <Card className="p-6 hover:shadow-lg transition-all duration-300 cursor-pointer group border-2 hover:border-primary animate-fade-in">
-        <div className="flex flex-col items-center text-center gap-4">
-          <div className="p-4 rounded-full bg-gradient-primary group-hover:shadow-glow transition-all duration-300">
-            <Icon className="h-8 w-8 text-primary-foreground" />
+      <Card className="p-5 md:p-6 hover:shadow-md transition-shadow cursor-pointer border-2 hover:border-primary/50 h-full">
+        <div className="flex items-start gap-4">
+          <div className="p-3 rounded bg-primary/10 flex-shrink-0">
+            <Icon className="h-6 w-6 md:h-7 md:w-7 text-primary" />
           </div>
-          <div>
-            <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
+          <div className="flex-1">
+            <h3 className="font-semibold text-base md:text-lg mb-1.5 text-foreground">
               {title}
             </h3>
-            <p className="text-sm text-muted-foreground">{description}</p>
+            <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
           </div>
         </div>
       </Card>

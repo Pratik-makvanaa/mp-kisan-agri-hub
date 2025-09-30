@@ -89,56 +89,56 @@ const Notices = () => {
       <Navbar />
       
       <div className="container mx-auto px-4 py-8">
-        <div className="flex items-center gap-3 mb-8 animate-fade-in">
-          <div className="p-3 rounded-full bg-gradient-primary">
+        <div className="flex items-center gap-3 mb-8">
+          <div className="p-3 rounded bg-primary">
             <Bell className="h-6 w-6 text-primary-foreground" />
           </div>
-          <h1 className="text-3xl font-bold">Notice Board</h1>
+          <h1 className="text-2xl md:text-3xl font-bold">सूचनाएं और योजनाएं</h1>
         </div>
 
         <div className="max-w-4xl mx-auto space-y-4">
-          {notices.map((notice, index) => (
+          {notices.map((notice) => (
             <Card
               key={notice.id}
-              className="p-6 hover:shadow-lg transition-all duration-300 animate-slide-up"
-              style={{ animationDelay: `${index * 50}ms` }}
+              className="p-5 md:p-6 hover:shadow-md transition-shadow border-l-4 border-l-primary"
             >
-              <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
-                <div className="flex-1">
-                  <div className="flex items-start gap-3 mb-3">
-                    <div className="p-2 rounded-lg bg-muted">
+              <div className="flex flex-col gap-3">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-center gap-2">
+                    <div className="p-2 rounded bg-muted">
                       {getTypeIcon(notice.type)}
                     </div>
-                    <div className="flex-1">
-                      <div className="flex items-start justify-between gap-2 mb-2">
-                        <h3 className="text-lg font-semibold">{notice.title}</h3>
-                        <Badge className={getPriorityColor(notice.priority)}>
-                          {notice.priority}
-                        </Badge>
-                      </div>
-                      <div className="flex items-center gap-2 mb-3">
-                        <Badge variant="outline">{notice.type}</Badge>
-                        <span className="text-sm text-muted-foreground">{notice.date}</span>
-                      </div>
-                      <p className="text-muted-foreground mb-4">{notice.description}</p>
-                      <Button variant="link" className="p-0 h-auto">
-                        Read More
-                        <ExternalLink className="ml-2 h-4 w-4" />
-                      </Button>
-                    </div>
+                    <Badge className={`${getPriorityColor(notice.priority)} text-xs`}>
+                      {notice.priority}
+                    </Badge>
                   </div>
+                  <Badge variant="outline" className="text-xs">{notice.type}</Badge>
                 </div>
+                
+                <div>
+                  <h3 className="text-base md:text-lg font-semibold mb-2">{notice.title}</h3>
+                  <span className="text-xs md:text-sm text-muted-foreground">{notice.date}</span>
+                </div>
+                
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                  {notice.description}
+                </p>
+                
+                <Button variant="link" className="p-0 h-auto self-start text-sm">
+                  विस्तार से पढ़ें
+                  <ExternalLink className="ml-2 h-4 w-4" />
+                </Button>
               </div>
             </Card>
           ))}
         </div>
 
         {/* Bottom Stats */}
-        <div className="mt-12 text-center animate-fade-in">
-          <p className="text-muted-foreground mb-4">
-            Showing {notices.length} latest announcements and schemes
+        <div className="mt-12 text-center">
+          <p className="text-sm md:text-base text-muted-foreground mb-4">
+            {notices.length} नवीनतम सूचनाएं दिख रही हैं
           </p>
-          <Button variant="outline">Load More</Button>
+          <Button variant="outline">और देखें</Button>
         </div>
       </div>
     </div>
